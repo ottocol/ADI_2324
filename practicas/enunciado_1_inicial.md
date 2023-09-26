@@ -13,7 +13,7 @@ En esta fase inicial de la práctica 1 únicamente vamos a hacer el diseño inic
 - Definición del API REST
 - Especificación en OpenAPI
 
-> Nota: Para facilitar la tarea, tanto en la definición del API REST como en la especificación de OpenAPI no es necesario que detalléis todos los posibles errores que podría tener cada operación. Esto evidentemente no es para nada una buena práctica pero lo permitiremos aquí para ahorrar tiempo en la entrega. **La implementación del API, que haréis a partir del 3 de septiembre, sí debe controlar todos los errores posibles**. 
+> Nota: Para facilitar la tarea, tanto en la definición del API REST como en la especificación de OpenAPI no es necesario que detalléis todos los posibles errores que podría tener cada operación. Esto evidentemente no es para nada una buena práctica pero lo permitiremos aquí para ahorrar tiempo en la entrega. **La implementación del API, que podéis empezar a partir del 3 de octubre, sí debe controlar todos los errores posibles**	. 
 
 ## Formato y plazo de entrega
 
