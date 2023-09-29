@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Tema 4: APIs web no RESTful</title>
+
+		<link rel="stylesheet" href="../../reveal.js-4.1.1/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js-4.1.1/dist/theme/ADI.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../reveal.js-4.1.1/plugin/highlight/zenburn.css">
+
+		<link rel="stylesheet" href="../../reveal.js-4.1.1/plugin/chalkboard/style.css">
+		<link rel="stylesheet" href="../../reveal.js-4.1.1/plugin/menu/font-awesome/css/all.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="4_mas_que_REST.md"></section>
+			</div>
+		</div>
+
+		<script src="../../reveal.js-4.1.1/dist/reveal.js"></script>
+		<script src="../../reveal.js-4.1.1/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js-4.1.1/plugin/highlight/highlight.js"></script>
+		<script src="../../reveal.js-4.1.1/plugin/zoom/zoom.js"></script>
+		<script src="../../reveal.js-4.1.1/plugin/menu/menu.js"></script>
+		<script src="../../reveal.js-4.1.1/plugin/chalkboard/plugin.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				zoomLevel: 1.5,
+				plugins: [
+					RevealMarkdown, RevealHighlight, RevealZoom, RevealMenu, RevealChalkboard 
+				],
+				chalkboard: {
+					toggleChalkboardButton: { left: "80px" },
+					toggleNotesButton: { left: "130px" }
+				}
+			});
+			Reveal.configure({ 
+				slideNumber: 'c/t'
+			});
+
+		</script>
+	</body>
+</html>
