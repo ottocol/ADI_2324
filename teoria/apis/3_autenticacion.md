@@ -263,6 +263,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...
 
 [Proyecto *online* en Glitch.com](https://glitch.com/edit/#!/frosted-continuous-crane)
 
+---
+
+## Middleware en Express
+
+<img src="img_3/pipeline.png" class="r-stretch">
+
 
 ---
 
@@ -276,6 +282,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...
 
 
 ---
+
 ## Disclaimer
 
 ¡Cuidado!: almacenar información sensible como *tokens* JWT en el "local storage" podría acarrear problemas de seguridad ya que otro código JS en la misma página tendría acceso a él (vulnerabilidad XSS o *Cross-Site Scripting*)
