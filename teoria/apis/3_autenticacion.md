@@ -1,6 +1,6 @@
 
 <!-- .slide: class="titulo" -->
-# Tema 2
+# Tema 1, parte III
 # Autenticación en APIs REST
 
 
