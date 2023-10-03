@@ -2,7 +2,7 @@
 
 # Tema 1, parte IV: APIs web no RESTful
 
-![](img_4/everywhere.jpg) <!-- .element: class="r-stretch" -->
+<img src="img_4/everywhere.jpg" class="r-stretch">
 
 ---
 
@@ -127,7 +127,8 @@ https://graph.facebook.com/me?fields=photos.limit(5),posts.limit(5)
 
 ## GraphQL vs REST
 
-![](https://pbs.twimg.com/media/DgsXLk_X4AEKiJJ?format=jpg) <!-- .element class="stretch" -->
+
+<img src="https://pbs.twimg.com/media/DgsXLk_X4AEKiJJ?format=jpg" class="r-stretch">
 
 https://twitter.com/nikkitaftw/status/1011928066816462848 <!-- .element class="caption" -->
 
@@ -171,18 +172,13 @@ Esta sintaxis es "abstracta". La sintaxis real dependerá del lenguaje que estem
 
 ---
 
-## Cómo probar el ejemplo
-
-### En local
+## Cómo probar el ejemplo en local
 
 1. Clonar el [repositorio git](https://github.com/kadirahq/graphql-blog-schema)
 2. Instalar dependencias con `npm install`
 3. Arrancar el servidor GraphQL con `npm run start`
 4. Abrir un navegador e ir a `http://localhost:3000`. Aparecerá [GraphiQL](https://github.com/graphql/graphiql), que es un editor interactivo y con autocompletado para lanzar consultas a APIs GraphQL
 
-### Online
-
-En [https://radiant-atoll-63982.herokuapp.com/](https://radiant-atoll-63982.herokuapp.com/)
 
 ---
 
