@@ -4,18 +4,24 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Tema 4: APIs web no RESTful</title>
+		<title>Tema 1, parte 4: Mas allá de REST</title>
 
-		<link rel="stylesheet" href="../../reveal.js-4.1.1/dist/reveal.css">
-		<link rel="stylesheet" href="../../reveal.js-4.1.1/dist/theme/ADI.css">
+		<link rel="stylesheet" href="../../reveal.js-4.6.0/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js-4.6.0/dist/theme/ADI.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../../reveal.js-4.1.1/plugin/highlight/zenburn.css">
+		<link rel="stylesheet" href="../../reveal.js-4.6.0/plugin/highlight/zenburn.css">
 
-		<link rel="stylesheet" href="../../reveal.js-4.1.1/plugin/chalkboard/style.css">
-		<link rel="stylesheet" href="../../reveal.js-4.1.1/plugin/menu/font-awesome/css/all.css">
-
-	</head>
+	<!-- Font awesome is required for the chalkboard plugin -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+	<!-- Chalkboard plugin -->
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">	
+</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
@@ -23,12 +29,11 @@
 			</div>
 		</div>
 
-		<script src="../../reveal.js-4.1.1/dist/reveal.js"></script>
-		<script src="../../reveal.js-4.1.1/plugin/markdown/markdown.js"></script>
-		<script src="../../reveal.js-4.1.1/plugin/highlight/highlight.js"></script>
-		<script src="../../reveal.js-4.1.1/plugin/zoom/zoom.js"></script>
-		<script src="../../reveal.js-4.1.1/plugin/menu/menu.js"></script>
-		<script src="../../reveal.js-4.1.1/plugin/chalkboard/plugin.js"></script>
+		<script src="../../reveal.js-4.6.0/dist/reveal.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/highlight/highlight.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/zoom/zoom.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/menu/menu.js"></script>
 
 		<script>
 			// More info about config & dependencies:
@@ -40,10 +45,7 @@
 				plugins: [
 					RevealMarkdown, RevealHighlight, RevealZoom, RevealMenu, RevealChalkboard 
 				],
-				chalkboard: {
-					toggleChalkboardButton: { left: "80px" },
-					toggleNotesButton: { left: "130px" }
-				}
+				transitionSpeed: 'fast'
 			});
 			Reveal.configure({ 
 				slideNumber: 'c/t'

@@ -1,6 +1,6 @@
 <!-- .slide: class="titulo" -->
 
-# Tema 3: APIs web no RESTful
+# Tema 1, parte IV: APIs web no RESTful
 
 ![](img_4/everywhere.jpg) <!-- .element: class="r-stretch" -->
 
@@ -8,9 +8,8 @@
 
 ## Contenidos
 
-1. RPC
-2. GraphQL
-3. APIs orientados a eventos
+1. APIs orientados a procedimientos (RPC)
+2. APIs orientados a consultas: GraphQL
 
 ---
 
@@ -28,19 +27,9 @@ Abreviatura de **Remote Procedure Call**, son APIs modelados en torno a **operac
 http://api-de-mentira.ua.es/buscarAlumno?dni=11222333
 ```
 
-
 ---
 
-## ¿Qué pasa con el API de Flickr?
-
-No es que sea un mal API, simplemente no es REST ¡¡en realidad es **RPC**!! ya que la interfaz es una lista de **operaciones** y no de **recursos**.   
-
-![](img_4/ops_flickr.png)
-
-
----
-
-## Otro ejemplo: el API Web de Slack
+## Ejemplo: el API Web de Slack
 
 No sigue ningún estándar RPC, como [se dice en la documentación](https://api.slack.com/web#basics) simplemente es **"una colección de métodos HTTP al estilo RPC"**
 
@@ -357,212 +346,6 @@ GraphQL es una tecnología interesante, pero **tampoco tiene por qué ser un "RE
 
 [Por qué API REST está muerto y debemos usar APIs GraphQL - José María Rodríguez](https://youtu.be/cUIhcgtMvGc) (Independientemente del *clickbait* del título, una charla interesante y bien explicada, para ilustrar cómo funciona GraphQL y las diferencias con REST)
 <!-- .element: class="caption" --> 
-
----
-
-<!-- .slide: class="titulo" -->
-
-# 3. APIs asíncronos / Orientados a eventos
-
----
-
-Hay casos que no se adaptan bien al modelo **petición/respuesta** de REST
-- Queremos estar al tanto de las **actualizaciones del servidor** (p. ej. un *juego online*, un *chat*, ver los *tweets* de nuestro *timeline*, ...)
-- Hay **operaciones costosas** en tiempo o que no sabemos **cuándo van a acabar** ( p.ej. procesamiento de imágenes/video, generación de documentos (pdf, ...),  procesamiento de pagos, envío de *emails*, crear un *fork* en Github ...)
-  
-
----
-
-## REST "asíncrono"
-
-Idea: 
-
-- El cliente recibe una **respuesta HTTP síncrona** que confirma el **inicio** de la tarea, pero el procesamiento en sí se hace de forma asíncrona
-- Para saber cúando ha terminado el procesamiento, el cliente debe hacer *polling*
-
-![](img_4/polling.png) <!-- .element class="stretch" -->
-
----
-
-## REST "asíncrono": posible implementación
-
-
-1. Petición POST para solicitar procesamiento asíncrono
-
-    - El servidor devuelve [202](https://developer.mozilla.org/es/docs/Web/HTTP/Status/202), (petición aceptada, pero trabajo no completado todavía)
-    - En la cabecera `Content-Location` se devuelve la URL de la tarea que está procesando el recurso</li>
-2. *polling* a intervalos regulares con GET a esta última URL
-    - Si el procesamiento no ha terminado todavía se devuelve un 200 pero con un cuerpo de respuesta indicando “procesamiento pendiente”
-    -Si ha terminado, se devuelve un 303 (la respuesta está en otra URL), enviando en la cabecera `Location` la URL del recurso generado
-
----
-
-## Algunas tecnologías web para tiempo real/eventos
-
-**de Servidor a Cliente(Navegador)**
-
-- **Long polling**: el cliente hace *polling* pero la conexión se mantiene abierta hasta que el servidor envía datos. Entonces hay que hacer *polling* de nuevo
-- **Server Sent Events**: el cliente recibe de forma asíncrona mensajes y eventos del servidor
-- **Websockets**: comunicación bidireccional asíncrona basada en eventos
-- **Notificaciones push**: el navegador recibe notificaciones que muestra automáticamente (las veremos en la parte de móviles)
-
-**de Servidor a Servidor**
-
-- **Webhooks**: se avisa con una petición HTTP cuando hay nuevos datos 
-
-
----
-
-
-## Polling vs Long polling vs. SSE
-
-De [Polling vs SSE vs WebSocket— How to choose the right one](https://codeburst.io/polling-vs-sse-vs-websocket-how-to-choose-the-right-one-1859e4e13bd9)
-<!-- .element class="caption" --> 
-
-![](https://cdn-images-1.medium.com/max/800/1*zG7Jyeq02JRAN6Wz6gs15g.png)
-
----
-
-## Server Sent Events
-
-
- + **Unidireccionales**, siempre desde el servidor al cliente
- + Mensajes de **texto** (NO datos binarios, ¿usar Base64?)
- + Funciona sobre **HTTP**
- + [Amplio soporte](https://caniuse.com/#feat=eventsource) en navegadores actuales
-
----
-
-## Formato de los eventos
-
-- El tipo MIME debe ser `text/event-stream`
-- Cada evento es una línea que comienza por `data:`. Un evento puede ocupar varias líneas
-
-```javascript
-data: esto es un mensaje
-
-data: este es otro, y tiene
-data: dos líneas
-```
-- Se puede especificar un tipo de evento con una línea que comienza por `event:` y una etiqueta arbitraria 
-
-```javascript
-event: login
-data: usuario533
-```
-
----
-
-
-## Ejemplo de SSE
-
-Ejemplo completo en [https://glitch.com/edit/#!/peridot-coin](https://glitch.com/edit/#!/peridot-coin)
-<!-- .element  class="caption"--> 
-
-```javascript
-//Servidor
-app.get('/sse', function(pet, resp) {
-  //El servidor de eventos debe usar el tipo MIME text/event-stream
-  resp.header('Content-Type', 'text/event-stream')
-  //Temporizador cada dos segundos
-  setInterval(function() {
-     //nombre del evento
-     resp.write('event: ping\n')
-     //datos del evento (texto, en nuestro caso un JSON)
-     resp.write(`data: {"timestamp":"${new Date()}"}`)
-     //Hay que acabar el mensaje con 2 retornos de carro
-     resp.write('\n\n')
-  }, 2000)
-})
-
-```
-
-```javascript
-//Cliente
-var evtSource = new EventSource("/sse");
-evtSource.addEventListener('ping', function(evento) {
-   var datos = JSON.parse(evento.data)
-   console.log(datos.timestamp)
-})
-```
-
----
-
-Facebook ofrece algunos *endpoints* SSE en su "graph API"
-
-[https://developers.facebook.com/docs/graph-api/server-sent-events](https://developers.facebook.com/docs/graph-api/server-sent-events)
-
-![](img_4/sse_facebook.png)
-
-
----
-
-## Websockets
-
-
-+ **Bidireccionales**, tanto cliente como servidor pueden enviar mensajes
-+ Los mensajes pueden contener **texto** o datos **binarios**
-+ Usa un **protocolo propio** (no es HTTP). Podemos tener problemas para pasar algunos *firewalls* 
-
----
-
-## Ejemplo de websockets
-
-Ejemplo completo en [https://glitch.com/edit/#!/sugar-property](https://glitch.com/edit/#!/sugar-property)
-<!-- .element  class="caption"--> 
-
-```javascript
-//SERVIDOR
-var express = require('express');
-var app = express();
-app.use(express.static('public'));
-var expressWs = require('express-ws')(app);
-
-app.ws('/', function(ws, pet) {
-  ws.on('message', function(data){
-        console.log("Mensaje del cliente: " + data)
-  })
-  
-  setInterval(
-    () => ws.send(new Date().toLocaleTimeString()),
-    2000
-  )
-}))
-```
-
-```javascript
-//CLIENTE
-var ws = new WebSocket('wss://' + window.location.hostname)
-      
-ws.onmessage = function(evento) {
- console.log("El servidor dice: " + evento.data)
-}   
-
-document.getElementById('botonMensaje').addEventListener('click', function() {
-  ws.send(document.getElementById('mensaje').value)  
-})
-```
-
----
-
-## Webhooks
-
-- **Notificaciones entre servidores**, no de servidor a cliente
-- Caso de uso típico: nuestros usuarios lo son también de un servicio de un tercero y queremos que ese tercero nos avise de actualizaciones
-- Ante un evento al que estamos suscritos, el servidor del Webhook lanza una petición POST a una URL de nuestro servidor (*callback*)
-
-![](img_4/webhooks.svg)<!-- .element: class="r-stretch" -->
-
----
-
-
-## Ejemplos reales de webhooks
-
-Algunos APIs REST públicos que usan *webhooks* y/o PubSubHubbub: Facebook, Instagram, Github, Paypal, Foursquare, algunos de Google (p.ej. Calendar), ... 
-- Documentación y ejemplos
-  - [Facebook real-time updates](https://developers.facebook.com/docs/graph-api/real-time-updates/)
-  - [Github webhooks](http://developer.github.com/v3/repos/hooks/)
-
 
 
 ---
