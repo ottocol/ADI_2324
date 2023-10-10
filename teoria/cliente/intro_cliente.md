@@ -140,7 +140,6 @@ En JS han ido surgiendo distintos sistemas de módulos, algunos estándares ofic
 
 ## Módulos ESM
 
-JAVASCRIPT:
 
 ```javascript
 //archivo modulo_saludo.js
@@ -156,9 +155,11 @@ import {saludar} from './modulo_saludo.js'
 console.log(saludar('Pepe'))
 ```
 
-HTML:
+Hay muchas formas de [import](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)<br>
+
 
 ```html
+<!-- en el HTML -->
 <script type="module" src="main.js"></script>
 ```
 
