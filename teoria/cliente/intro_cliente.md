@@ -1,7 +1,7 @@
 <!-- .slide: class="titulo" -->
 
 # Tema 2: Javascript en clientes web: 
-## Parte I: introducción, eventos y API del DOM
+## Parte II: introducción, eventos y API del DOM
 
 
 ---
@@ -98,14 +98,14 @@ Como curiosidad: Babel lo empezó a escribir Sebastian McKenzie a los 17 años m
 Forma "clásica": con el atributo `src` en un `<script>` vacío conseguimos una especie de "include". Todo lo que incluímos está en el mismo "espacio de nombres"
 
 ```html
-<!-- Ejemplo funcionando en https://jsbin.com/jaxupiy/edit?html,output -->
-<script src="https://maps.google.com/maps/api/js"></script>
-<div id="map" style="height:300px;width:400px"></div>
+<!-- Ejemplo completo en https://jsbin.com/wiyocat/edit?html,js,output -->
+<script src="https://threejs.org/build/three.js"></script>
 <script>
-     map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 38.385, lng: -0.513},
-          zoom: 15
-        });
+    // Crear una escena
+    var scene = new THREE.Scene();
+    // Crear una cámara
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    //... el ejemplo continúa...
 </script>
 ```
 - Típicamente cada `<script src="">` define una o más clases, funciones o vars. que son **globales**
