@@ -329,7 +329,7 @@ document.addEventListener('click', function(e){
 
 La delegación de eventos es útil cuando queremos asignar un comportamiento similar a varios elementos sin tener que repetir el *event listener* para cada uno 
 
-[Ejemplo "teclado simulado"](https://jsbin.com/yutame/2/edit?html,js,output)
+[Ejemplo "teclado simulado"](https://jsbin.com/yutame/edit?html,js,output)
 
 
 
