@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Tema 2, parte 2: Comunicación con el servidor (AJAX)</title>
+
+		<link rel="stylesheet" href="../../reveal.js-4.6.0/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js-4.6.0/dist/theme/ADI.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../reveal.js-4.6.0/plugin/highlight/zenburn.css">
+
+	<!-- Font awesome is required for the chalkboard plugin -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+	<!-- Chalkboard plugin -->
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">	
+</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="comunicacion_servidor.md"></section>
+			</div>
+		</div>
+
+		<script src="../../reveal.js-4.6.0/dist/reveal.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/highlight/highlight.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/zoom/zoom.js"></script>
+		<script src="../../reveal.js-4.6.0/plugin/menu/menu.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				zoomLevel: 1.5,
+				plugins: [
+					RevealMarkdown, RevealHighlight, RevealZoom, RevealMenu, RevealChalkboard 
+				],
+				transitionSpeed: 'fast'
+			});
+			Reveal.configure({ 
+				slideNumber: 'c/t'
+			});
+
+		</script>
+	</body>
+</html>
