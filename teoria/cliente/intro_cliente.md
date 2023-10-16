@@ -1,7 +1,7 @@
 <!-- .slide: class="titulo" -->
 
 # Tema 2: Javascript en clientes web: 
-## Parte II: introducción, eventos y API del DOM
+## Parte I: introducción, eventos y API del DOM
 
 
 ---
