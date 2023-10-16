@@ -16,13 +16,9 @@ Necesitamos alguna funcionalidad de JS en el navegador para poder hacer peticion
 
 ---
 
+<!-- .slide: class="titulo" -->
 
-# Indice
-
-2.4. AJAX
-2.5. CORS
-2.6. Persistencia local
-
+## 2.4. AJAX
 
 
 ---
@@ -79,6 +75,10 @@ catch (error) {
 }
 ```
 
+[https://jsbin.com/sarahuc/edit?html,js,output](https://jsbin.com/sarahuc/edit?html,js,output)
+
+
+
 ---
 
 ## Versión con promesas
@@ -102,11 +102,14 @@ console.log('Cuando se ejecuta esto todavía no se ha recibido la respuesta!!')
  
 [https://jsbin.com/yuhutiz/edit?html,js](https://jsbin.com/yuhutiz/edit?html,js)
 
+
+---
+
 ## Peticiones más complejas con `fetch`
 
 Por defecto se hace una petición `GET`. Para cambiar el tipo de petición, añadir cabeceras, cuerpo de petición, etc, podemos pasar un segundo parámetro que es un objeto JS con las propiedades:
 
-[https://jsbin.com/fidepejazu/edit?html,js,console](https://jsbin.com/fidepejazu/edit?html,js,console)<!-- .element: class="caption" -->
+[https://jsbin.com/razelec/edit?html,js,console](https://jsbin.com/razelec/edit?html,js,console)<!-- .element: class="caption" -->
 
 ```javascript
 //reqres.in es un API REST "fake" al que podemos hacer peticiones
@@ -118,7 +121,7 @@ var respuesta = await fetch('https://reqres.in/api/users', {
     headers: {
       'Content-type':'application/json'
     },
-    body: '{"login":"Pepe", "nombre":"Pepe Pérez"}'
+    body: JSON.stringify(usuario)
 })
 var datos = await respuesta.json();
 console.log(datos.login)
@@ -159,6 +162,14 @@ document.getElementById('boton').addEventListener('click', function(){
   })      
 })
 ```
+
+---
+
+
+<!-- .slide: class="titulo" -->
+
+## 2.5. CORS
+
 
 ---
 
@@ -221,7 +232,7 @@ Aclaración: CORS **no es un mecanismo de protección del servidor**. Nada nos i
 
 <!-- .slide: class="titulo" -->
 
-## 3.
+## 2.6
 ## Persistencia local
 
 
