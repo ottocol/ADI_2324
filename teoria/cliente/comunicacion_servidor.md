@@ -113,7 +113,7 @@ Por defecto se hace una petición `GET`. Para cambiar el tipo de petición, aña
 
 ```javascript
 //reqres.in es un API REST "fake" al que podemos hacer peticiones
-var usuario;
+var usuario = {};
 usuario.login = "Pepe"
 usuario.nombre = "Pepe Pérez"
 var respuesta = await fetch('https://reqres.in/api/users', {
