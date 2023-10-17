@@ -256,7 +256,7 @@ localStorage.login = "pepe"
 ```
 - El valor es siempre una **cadena**, para otro tipo de datos hay que hacer la conversión manualmente
     + Aunque ya hemos visto que la conversión objeto<->cadena es sencilla gracias a `JSON.stringify` y `JSON.parse`
-- El **ámbito** es el sitio web actual. Hay otro objeto `sessionStorage` que reduce más este ámbito, a la "pestaña" actual del navegador
+- El **ámbito** es el sitio web actual. Hay otro objeto `sessionStorage` que reduce más este ámbito, a la "pestaña" actual del navegador, y además se pierde si se cierra.
 
 ---
 
