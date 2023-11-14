@@ -28,10 +28,11 @@ Debéis desarrollar una web en la que como mínimo se pueda hacer:
 
 > Ojo, la validación con HTML/JS estándar se dispara en algunos casos con el evento "submit" de un formulario. Cuando este evento llega al navegador, el comportamiento por defecto es cargar una página nueva, o recargar la actual, esto hará que el estado de los componentes se pierda, y no es una buena idea :). Si usáis este método tendréis que aseguraros de que el evento submit se anula en vuestro *listener* con un `preventDefault`.
 
-Además, **se debe usar [Pinia](https://pinia.vuejs.org/) o [Vuex](https://vuex.vuejs.org)para gestionar el estado de vuestra aplicación de manera centralizada**. En el *store* debería estar como mínimo:
-    + La información sobre el usuario autentificado y los métodos de negocio de login/logout/registrar usuario (si tenéis este último)
-    + Los datos de los listados que mostréis en la web
-    + Los métodos de comunicación con el servidor (lo que en los ejemplos de la lista de la compra siempre metemos en la clase `ClienteAPI`)
+Además, **se debe usar [Pinia](https://pinia.vuejs.org/) o [Vuex](https://vuex.vuejs.org) para gestionar el estado de vuestra aplicación de manera centralizada**. En el *store* debería estar como mínimo:
+
+- La información sobre el usuario autentificado y los métodos de negocio de login/logout/registrar usuario (si tenéis este último)
+- Los datos de los listados que mostréis en la web
+- Los métodos de comunicación con el servidor (lo que en los ejemplos de la lista de la compra siempre metemos en la clase `ClienteAPI`)
 
 
 ### Cómo implementar el login/logout
