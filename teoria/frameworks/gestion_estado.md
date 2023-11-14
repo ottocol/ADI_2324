@@ -308,6 +308,10 @@ export default {
 
 ---
 
+Aclaración: en la transparencia anterior se usa el método `setup` que en realidad es parte del "Composition API", no del "Options API" que es el que nosotros usamos en Vue. Se puede usar Pinia con el "Options API puro" como se explica en [la documentación](https://pinia.vuejs.org/cookbook/options-api.html), aunque el código es más complicado.
+
+---
+
 ## Código de ejemplo
 
 - [Ejemplo completo del contador en CodeSandbox](https://codesandbox.io/s/contador-pinia-8gplz8)
@@ -320,7 +324,8 @@ export default {
 
 
 
-![](images_estado/pinia_data_flow.png)<!-- .element: class="stretch" -->
+<img src="images_estado/pinia_data_flow.png" class="stretch">
+
 
 
 ---
