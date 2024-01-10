@@ -1,7 +1,7 @@
 # Trabajos en grupo
 ## Normas básicas
 
-> **La fecha límite de entrega será el viernes 15 de enero de 2024**
+> **La fecha límite de entrega será el lunes 15 de enero de 2024**
 
 
 - **En grupos de 2-4 personas**, aunque excepcionalmente se podrían hacer de manera individual. No más de 4 personas.
